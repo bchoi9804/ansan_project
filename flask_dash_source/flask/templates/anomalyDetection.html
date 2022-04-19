@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>추노</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/d_footer.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/d_header.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/d_menubar.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/anomalyDetection.css')}}">
+    </head>
+    <body>
+        <div class="header">
+            <div class="loginBtn">
+
+            </div>
+            <div class="title">
+                <h1>프로젝트' 추노</h1>
+            </div>
+        </div>
+        <div class="menubar">
+            <ul>
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('liveStreaming')}}">Live Streaming</a></li>
+                <li><a href="{{url_for('anomalyDetection')}}">Anomaly Detection</a></li>
+            </ul>
+        </div>
+        <main>
+            <div class="filter">
+                <select>
+                    <option>전체</option>
+                    <option>주행감지</option>
+                    <option>인물감지</option>
+                </select>
+            </div>
+            <ul class="table">
+                <li class="tableHeader">
+                    <ul>
+                        <li>
+                            감지항목 No : {{paging}}
+                        </li>
+                        <li>
+                            내용 : {{getData|length}}
+                        </li>
+                        <li>
+                            날짜
+                        </li>
+                    </ul>
+                </li>
+                {% for index in range(0,getData|length) %}
+                <li class="tableData">
+                
+                    <ul class="defaultData">
+                        <li>
+                        
+                            이름 : {{getData[index][1]}}
+                        </li>
+                        <li>
+                            None
+                        </li>
+                        <li>
+                            {{getData[index][8]}}
+                        </li>
+                    </ul>
+                    
+                    <ul class="moreData">
+                        
+                        <li class="imgArea">
+                            <figure class="mainImg">
+                                <img src="{{url_for('static', filename=getData[index][2])}}">
+                            </figure>
+                            <figure class="imgTab">
+                                <img src="{{url_for('static', filename=getData[index][2])}}">
+                                <img src="{{url_for('static', filename=getData[index][3])}}">
+                                <img src="{{url_for('static', filename=getData[index][4])}}">
+                                <img src="{{url_for('static', filename=getData[index][5])}}">
+                            </figure>
+                        </li>
+                        <li class="infoWrap">
+                            <ul class="infoArea">
+                                <li>
+                                    이름 : {{getData[index][1]}}
+                                </li>
+                                <li>
+                                    측정 온도 : {{getData[index][6]}}°C
+                                </li>
+                                <li>
+                                    촬영 시간 : {{getData[index][8]}}
+                                </li>
+                            </ul>
+                            <ul class="measArea">
+                                <li>
+                                    이름 : {{getData[index][1]}}
+                                </li>
+                                <li>
+                                    마스크착용 : 
+                                </li>
+                                <li>
+                                    감지 성별 : 
+                                </li>
+                                
+                                <li class="buttonWrap">
+                                    <div class="button">검사하기</div>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                    </ul>
+              
+                    
+                </li>
+                {%endfor%}
+            </ul>
+            <ul>
+                {% for index in range(0,paging) %}
+                <li>
+                    <div OnClick="location.href ='./anomalyDetection?page={{index+1}}&num=5'" style="cursor:pointer">
+                        {{index+1}}
+                    </div>
+                </li>
+                {%endfor%}
+            </ul>
+        </main>
+        <div class="footer">
+            asdasd
+        </div>
+    </body>
+    <script type="text/javascript" src="{{url_for('static', filename='js/anomalyDetection.js')}}"></script>
+</html>

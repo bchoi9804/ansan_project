@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/liveStreaming.css')}}">
+    </head>
+    <body>
+        <main>
+            <div class="leftSidebar">
+                <div class="menubar">
+                    <div class="optionBtn">
+                        <img src="{{url_for('static', filename='img/setting.png')}}" alt="option">
+                    </div>
+                    <div class="changeBtn">
+                        <img src="{{url_for('static', filename='img/arrowswitch.png')}}" alt="change">
+                    </div>
+                    <div class="shutdownBtn">
+                        <img src="{{url_for('static', filename='img/shutdown.png')}}" alt="shutdown">
+                    </div>
+                </div>
+            </div>
+            <div class="leftWrap">
+                <div class="checkNum">
+                    <div class="checkNumTitle">
+                        검사횟수
+                    </div>
+                    <div class="checkInfoArea">
+                        <div class="checkNumResult">
+                            0
+                        </div>
+                        <div class="checkNumEffect">
+                            0
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="noMaskNum">
+                    <div class="noMaskNumTitle">
+                        마스크 미착용자
+                    </div>
+                    <div class="noMaskInfoArea">
+                        <div class="noMaskNumResult">
+                            0
+                        </div>
+                        <div class="noMaskNumEffect">
+                            0
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="maskPlot">
+                    <div id="maskUsagePlot" class="maskUsagePlot">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="mainWrap">
+                <div class="chartWrap">
+                    <div class="chartInfoArea">
+                        <div class="chartTab">
+                            <ul>
+                                <li class="chartInfoTab">
+                                    ChartInfo
+                                </li>
+                                <li class="chartMemberTab noneSelect">
+                                    MemberInfo
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chartInfo">
+                            <ul>
+                                <li class="chartDivision">
+                                    <ul class="chartTextArea">
+                                        <li class="chartImageArea">
+                                            <figure>
+                                                <img class="chartImg" onerror="this.src='{{url_for('static', filename='img/NoImage.jpg')}}'" src="..">
+                                            </figure>
+                                            <ul>
+                                                <li class="chartImgNum1">
+                                                    No.1
+                                                </li>
+                                                <li class="chartImgNum2">
+                                                    No.2
+                                                </li>
+                                                <li class="chartImgNum3">
+                                                    No.3
+                                                </li>
+                                                <li class="chartImgNum4">
+                                                    No.4
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="chartIntelligence">
+                                            <div class="chartSeq">
+                                                
+                                            </div>                                   
+                                            <div class="userName">
+                                                
+                                            </div>
+                                            <div class="predictedAge">
+                                                
+                                            </div>
+                                            <div class="temperature">
+                                                
+                                            </div>
+                                            <div class="predictedGender">
+                                                
+                                            </div>
+                                            <div class="useOfMask">
+                                                
+                                            </div>
+                                            <div class="errMSG">
+                                            </div> 
+                                            <div class="verifyBtn">
+                                                
+                                            </div>
+                                        </li>
+                                    </ul>
+                                   <!-- <ul class="magnifierWrap">
+                                        <li class="magnifierArea">
+                                            <img class="magnifier">
+                                        </li>
+                                       
+                                    </ul>-->
+                                    <div class="chartLogWrap">
+                                        <h4>Chart Log</h4>
+                                        <textArea class="chartLog" disabled="disabled";></textArea>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chartListArea">
+                        <ul class="chartList">
+                            <li class="chartHead">
+                                <ul>
+                                    <li>
+                                        PersonID
+                                    </li>
+                                    <li>
+                                        Name
+                                    </li>
+                                    <li>
+                                        Temp
+                                    </li>
+                                    <li>
+                                        Mask
+                                    </li>
+                                    <li>
+                                        Date
+                                    </li>
+                                    <li>
+                                        Info
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="chartTables">
+                                <ul>
+                                    <li class="chartTable">
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="imgStreaming">
+                    <div class="mainCam">
+                        <img class="mainCamImg" src="{{url_for('liveCam02')}}">
+                        
+                    </div>
+                    <div class="roadInfo">
+                        <div class="roadCam">
+                            <img src="{{url_for('liveCam01')}}">
+                        </div>
+                        <div class="logo">
+                            <img src="{{url_for('static', filename='img/Logo.gif')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightSidebar"></div>
+        </div>
+        <div class="modal">
+            <div class="modalContainer">
+                <div class="modalTitle">
+                    Verify
+                </div>
+                <ul>
+                    <li class="verifyData">
+                        <input class="modalNum" type="hidden" value="">
+                        <div>
+                            - USER INFO -
+                        </div>
+                        <figure>
+                            <img class="modalImg">
+                        </figure>
+                        <ul class="modalInfo">
+                            <li class="modalName"> 
+                                
+                            </li>
+                            <li class="modalAge">
+                            
+                            </li>
+                            <li class="modalGen">
+                            
+                            </li>
+                            <li class="modalTemp">
+                            
+                            </li>
+                            <li class="modalMask">
+                            
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="memberData">
+                        <div class="memberSelectArea">
+                            <label for="memberSelect" class="memberSelectLabel">- GROUP: 
+                                <select class="memberSelect" name="memberSelect">
+                                    
+                                </select>
+                            </label>
+                            <figure>
+                                <img class="modalMemberImg" src="">
+                            </figure>
+                            <ul class="modalMemberInfo">
+                                <li> 
+                                    Member: <span  class="modalMemberName"></span>
+                                </li>
+                                <li>
+                                    Age: <span  class="modalMemberAge"></span>
+                                </li>
+                                <li>
+                                    Gender: <span  class="modalMemberGen"></span>
+                                </li>
+                                <li>
+                                    Email: <span  class="modalMemberEmail"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="modalBtnArea">
+                    
+                    <div class="modalCheckBtn">
+                        확인
+                    </div>
+                    <div class="modalCancelBtn">
+                        취소
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logModalWrap">
+            <ul class="logModal">
+                <li class="logInfoArea">
+                    <div class="logInfoTitle">
+                        LOG INFORMATION
+                    </div>
+                    <figure class="logModalImgWrap">
+                        <img class="logModalMainImg">
+                        <div class="logModalSubImgArea">
+                            <img class="logModalSubImg1 logModalSubImg">
+                            <img class="logModalSubImg2 logModalSubImg">
+                            <img class="logModalSubImg3 logModalSubImg">
+                            <img class="logModalSubImg4 logModalSubImg">
+                        </div>
+                        
+                    </figure>
+                    <ul class="logInfoStatus">
+                        <li class="logSeqArea">
+                            <span class="logFile"></span>        
+                        </li>    
+                        <li class="logDateArea">
+                            <p>LogDate :</p><span class="logDate"></span>        
+                        </li>
+                        <li class="logNameArea">
+                            <p>Name :</p><span class="logName"></span>        
+                        </li>
+                        <li class="logGenderArea">
+                            <p>Gender :</p><span class="logGender"></span>        
+                        </li>
+                        <li class="logTempArea">
+                            <p>Temp :</p><span class="logTemp"></span>        
+                        </li>
+                        <li class="logMaskArea">
+                            <p>Mask :</p><span class="logMask"></span>        
+                        </li>
+                    </ul>
+                    <div class="logContent">
+                        
+                    </div>
+                </li>
+                <li class="logListWrap">
+                    <div class="logListTitle">LogList</div>
+                    <ul class="logListArea">
+                        
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/liveStreaming.js')}}"></script>
+</html>

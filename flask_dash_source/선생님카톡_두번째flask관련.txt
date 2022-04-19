@@ -1,0 +1,11 @@
+app.py (Flask run server 파일) 
+
+csv-to-sqlite.py (csv를 sqlite DB에 저장할)
+
+db.sqlite(DB파일)
+
+data.csv(시각화할 데이터가 들어있는 파일)
+
+graph.html(html파일)
+
+static 파일들(그래프를 구현해줄 JS 파일)

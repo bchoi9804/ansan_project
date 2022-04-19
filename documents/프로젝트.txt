@@ -1,0 +1,14 @@
+1. BOM(Partslist)
+2. 간트차트
+3. 흐름도(Flow chart)
+따로 작성하셔야하고 양식에 기술동향 개발과정
+고칠점 등 이런것은 양식에서 작성하시면 됩니다.
+
+[프로젝트강사] [오후 3:10] https://gitmind.com/kr/
+플로우차트 여기가셔서 작성하시면 됩니다
+[프로젝트강사] [오후 3:10] 미리 해놓으시면 나중에 편하실 거예요
+[프로젝트강사] [오후 3:10] 필요한 부품 데이터 시트도 모아주세요 
+데이터 시트란? 부품의 성능, 특성 등을 모아놓은 문서입니다
+
+데이터시트 검색 사이트
+https://www.alldatasheet.co.kr/?gclid=Cj0KCQiAxoiQBhCRARIsAPsvo-xID_Nst77IkQGmrKcD58T3FPHZw4TFPphooYDmXdFAIhnCC1dHcakaAhOIEALw_wcB
