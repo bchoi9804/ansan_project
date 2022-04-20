@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/lm35_service')                   
 def lm35_service():
   # 접속정보
-  db = pymysql.connect(host='192.168.0.17', user='root', password='pi', db='mysql', charset='utf8')  
+  db = pymysql.connect(host='20.196.223.154', user='root', password='1234', db='mysql', charset='utf8')
   cur = db.cursor() # 커서생성 
   sql = "SELECT DATATIME, TEMP FROM temperature ORDER BY DATATIME ASC LIMIT 100" 
   

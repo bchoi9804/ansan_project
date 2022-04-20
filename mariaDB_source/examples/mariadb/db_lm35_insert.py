@@ -1,19 +1,16 @@
-import spidev
 import time
+import Adafruit_DHT    # 온습도 센서 라이브러리 임포트
 import pymysql    # pymysql 임포트
 
-def analog_read(channel):
-    r = spi.xfer2([1, (0x08+channel)<<4, 0])
-    adc_out = ((r[1]&0x03)<<8) + r[2]
-    return adc_out
-
-spi = spidev.SpiDev()
-spi.open(0,0)
-spi.max_speed_hz = 1000000
+def Temp_read(pin):     # 온도 읽고 반환하는 함수
+    t = Adafruit_DHT.read_retry(sensor, pin)
+    if (t is not None):
+        return t
 
 # 전역변수 선언부 
 db = None 
 cur = None 
+sensor = Adafruit_DHT.DHT11  #온습도 센서 지정
 
 # 접속정보
 db = pymysql.connect(host='192.168.1.47', user='root', password='pi', db='mysql', charset='utf8')  
@@ -22,12 +19,10 @@ try:
   cur = db.cursor() # 커서생성 
   
   while True:
-    adc = analog_read(3)
-    voltage = adc*(3.3/1023/5)*1000
-    temperature = voltage / 10.0
-    print ("%4d/1023 => %5.3f V => %4.1f°C" % (adc, voltage, temperature))  
+    temp = Temp_read(4)
+    print ("%2.1f°C" % temp)  # 입력할 온도값 출력
 	
-    sql = "INSERT INTO temperature(TEMP) VALUES (%4.1f)" %  temperature
+    sql = "INSERT INTO temperature(TEMP) VALUES (%4.1f)" %  temp
     print(sql)
 
     # 실행할 sql문 
@@ -41,4 +36,3 @@ except KeyboardInterrupt:
   pass	
 finally:
   db.close() # 종료
-  spi.close()

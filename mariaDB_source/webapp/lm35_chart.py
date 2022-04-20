@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 def select(query):
   # 접속정보
-  db = pymysql.connect(host='192.168.0.17', user='root', password='pi', db='mysql', charset='utf8')  
+  db = pymysql.connect(host='20.196.223.154', user='root', password='1234', db='mysql', charset='utf8')
   # 커서생성
   cur = db.cursor()    
   # 실행할 sql문 
