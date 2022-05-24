@@ -1,45 +1,45 @@
 import pymysql as db
 
-class MysqlConnector(object):
+class MysqlConnector(object): # 클래스 선언
     
 
-    def __new__(cls, *args, **kwargs):
-        if not hasattr(cls, "_instance"):
-            print("__new__\n")
-            cls._instance = super().__new__(cls)
-        return cls._instance
+    def __new__(cls, *args, **kwargs): # __new__ 함수?? 
+        if not hasattr(cls, "_instance"): # hasattr가 아니면???
+            print("__new__\n") # 출력하고
+            cls._instance = super().__new__(cls) # 클래스 실체를 만든다.
+        return cls._instance # 실체를 반환한다.
     
-    def __init__(self):
-        cls = type(self)
-        if not hasattr(cls, "_init"):
-            print("__init__\n")
-            self.__host = "121.139.165.163"
-            self.__port = 8486
-            self.__user = "admin"
-            self.__passwd = "1q2w3e4r"
-            self.__db = "teamproject"
+    def __init__(self): #생성자 함수
+        cls = type(self) # type이라는 함수를 cls라는 변수에 저장한다.
+        if not hasattr(cls, "_init"): # hasattr가 아니면??? 
+            print("__init__\n") #출력하고
+            self.__host = "121.139.165.163" # 호스트 ip
+            self.__port = 8486 # 포트번호
+            self.__user = "admin" # 사용자
+            self.__passwd = "1q2w3e4r" # 비밀번호
+            self.__db = "teamproject" # db 이름
             
             #self.__conn = db.connect(host="192.168.137.1", user="admin", passwd="1q2w3e4r", db= "teamproject", port=3306, use_unicode=True, charset='utf8')
-            cls._init = True
+            cls._init = True # 생성자 함수를 실행한다.
     
 
-    def getPageData(self, page, num):
-        try:
-            conn = db.connect(host=self.__host, user=self.__user, passwd=self.__passwd, db= self.__db, port=self.__port, use_unicode=True, charset='utf8')
-            curs = conn.cursor()
-            sql = "select count(*) from detectTB"
-            curs.execute(sql)
-            total = curs.fetchall()
+    def getPageData(self, page, num): # getPageData 함수 선언
+        try: # try ~ except 문
+            conn = db.connect(host=self.__host, user=self.__user, passwd=self.__passwd, db= self.__db, port=self.__port, use_unicode=True, charset='utf8') # db.connect, 사용할 변수를 선언한다.
+            curs = conn.cursor() #연결정보에 cursor()메서드를 curs 변수에 저장한다.
+            sql = "select count(*) from detectTB" # sql 명령문
+            curs.execute(sql) # 연결해서 detectTB테이블에 모든 행을 조회한다.
+            total = curs.fetchall() # 모든 정보를 total 변수에 저장한다.
             
-            total = total[0][0]
+            total = total[0][0] # total = 2차원 배열 선언
             
-            paging = int((total+num)/num)
-            maxVal = page*num
-            minVal = maxVal - num
-            sql = "select * from detectTB order by seq desc limit %d,%d;"
-            curs.execute(sql, minVal, maxVal)
+            paging = int((total+num)/num) # 페이징변수
+            maxVal = page*num #페이지 * 수
+            minVal = maxVal - num 
+            sql = "select * from detectTB order by seq desc limit %d,%d;" # 조회한 정보를 내림차순으로 정렬한다
+            curs.execute(sql, minVal, maxVal) # sql명령어, 최소값, 최대값변수를 실행함수에 입력값으로 넣는다
             
-            tupleData = curs.fetchall()
+            tupleData = curs.fetchall() 
             curs.close()
             listData = list(tupleData)
             for index in range(len(listData)):

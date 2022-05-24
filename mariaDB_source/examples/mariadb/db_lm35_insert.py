@@ -13,7 +13,7 @@ cur = None
 sensor = Adafruit_DHT.DHT11  #온습도 센서 지정
 
 # 접속정보
-db = pymysql.connect(host='192.168.1.47', user='root', password='pi', db='mysql', charset='utf8')  
+db = pymysql.connect(host='192.168.1.235', user='root', password='pi', db='mysql', charset='utf8')  
 
 try:
   cur = db.cursor() # 커서생성 

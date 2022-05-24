@@ -1,4 +1,4 @@
-from flask import Flask,request, render_template
+from flask import Flask, request, render_template
 import pymysql
 
 
@@ -6,12 +6,12 @@ db = None
 cur = None 
 app = Flask(__name__)
 
-@app.route('/lm35_service')                   
+@app.route("/lm35_service")                   
 def lm35_service():
   # 접속정보
-  db = pymysql.connect(host='20.196.223.154', user='root', password='1234', db='mysql', charset='utf8')
+  db = pymysql.connect(host='192.168.1.235', user='root', password='pi', db='mysql', charset='utf8')
   cur = db.cursor() # 커서생성 
-  sql = "SELECT DATATIME, TEMP FROM temperature ORDER BY DATATIME ASC LIMIT 100" 
+  sql = "SELECT DATATIME, HUMI, TEMP FROM temperature ORDER BY DATATIME ASC LIMIT 100" 
   
   # 실행할 sql문 
   cur.execute(sql)
@@ -22,7 +22,7 @@ def lm35_service():
   return render_template("lm35_service.html", result=result)
   
 if __name__ == '__main__':
-  app.run(debug=True, port=80, host='0.0.0.0')
+  app.run(debug=True, host='0.0.0.0')
 	
 
 

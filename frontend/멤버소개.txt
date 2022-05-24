@@ -1,0 +1,21 @@
+personal image update (개인사진)
+TEAM LEADER: Jinseong Kim
+MAIN TASK: HW/SW
+GIT ADDRESS: https://github.com/jkim3673
+BLOG ADDRESS: https://blog.naver.com/allbm
+EMAIL ADDRESS: jkim3673@gmail.com
+CELL NUMBER: 010-9040-0628
+
+personal image update (개인사진)
+MEMBER1: Heejune Kim
+MAIN TASK: SW/FRONTEND
+GIT ADDRESS: 
+EMAIL ADDRESS: 
+CELL NUMBER:
+
+personal image update(개인사진)
+MEMBER2: Bomi Choi
+MAIN TASK: SW/BACKEND
+GIT ADDRESS: https://github.com/bchoi9804
+EMAIL ADDRESS: bchoi9804@gmail.com
+CELL NUMBER: 010-5400-0628

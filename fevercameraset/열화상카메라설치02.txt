@@ -1,0 +1,37 @@
+열화상카메라 pyqt5사용해서 켜기
+
+리눅스환경에 들어가서
+$ su root
+
+설치하고 싶은 위치로 들어가서
+ex:)
+$ cd hj/
+
+소프트웨어 설치
+curl -sL https://github.com/Seeed-Studio/grove.py/raw/master/install.sh | sudo bash -s -
+pip3 install seeed-python-mlx90640
+sudo pip3 install seeed-python-mlx90640
+
+
+잘나오는지 확인
+i2cdetect -y -r 1
+
+
+소스코드 다운받기
+sudo git clone  https://github.com/gobuyun/seeed_ircamera.git
+
+다운받은 코드폴더로 접속
+cd seeed_ircamera
+
+
+코드 실행.
+sudo python3 seeed_python_ircamera.py
+
+터미널 하나 더 실행
+$ sudo apt-get install python3-pyqt5
+$ sudo apt-get install qt5-defalut pyqt5-dev pyqt5-dev-tools
+$ sudo apt-get install qttols5-dev-tools
+
+$ sudo -H pip install --upgrade --ignore-istalled pip setuptools
+$ pip install --upgrade setuptools
+$ sudo python3 -m pip install pyqt5==5.15 pyqtchart==5.15

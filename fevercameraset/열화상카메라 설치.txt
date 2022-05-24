@@ -1,0 +1,40 @@
+실행에 앞서 필요한 소프트웨어들 설치.
+
+$ sudo apt install python3-matplotlib python3-scipy python3-numpy
+$ sudo apt install python-smbus i2c-tools
+$ sudo pip3 install RPI.GPIO adafruit-blinka
+$ sudo pip3 install adafruit-circuitpython-mlx90640
+
+
+i2c를 활성화하고 i2c 인터페이스의 보레이트를 조정하자
+i2c 인터페이스가 더 빠른 속도로 실행되고 카메라가 더 빠른 프레임률을 제공할 수 있다.
+$ sudo nano /boot/config.txt
+
+
+
+#Make sure the following line is uncommented:
+dtparam=i2c_arm=on
+
+#옆에 추가로 적기
+,i2c_arm_baudrate=1000000
+
+#이렇게 나오도록 하자
+dtparam=i2c_arm=on,i2c_arm_baudrate=1000000
+
+
+
+열화상 카메라 github 설치
+$ git clone https://github.com/EverythingSmartHome/mlx90640-thermal-camera.git
+$ cd mlx90640-thermal-camera/
+
+카메라가 제대로 작동되는지 확인
+$ sudo i2cdetect -y 1
+
+
+열화상카메라 python코드 실행
+$ python3 thermal-camera-advanced.py
+
+카메라 미러모드 활성화
+$ python3 thermal-camera-advanced.py --mirror
+
+안되면 interface들어가서 camera enable되있는지 확인해보자
