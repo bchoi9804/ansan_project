@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>WELCOME TO DCT DASHBOARD</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <videobox class="container_video_box">
+            <h1>자율주행 카메라 실시간 영상</h1>
+            <div style="margin: 10px; padding: 10px;">
+                <img src="{{ url_for('video_feed') }}" width="700" height="500" frameborder="0" style="margin-bottom: 100px;"></img>
+            </div>
+        </videobox>
+    </body>
+</html>
+
+

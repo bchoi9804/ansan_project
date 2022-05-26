@@ -1,0 +1,11 @@
+body {
+    background-color: antiquewhite;
+}
+
+.container_video_box {
+    background-color: rgb(192, 114, 114);
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+    border-radius: 10px;
+}

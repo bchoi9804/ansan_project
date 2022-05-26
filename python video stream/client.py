@@ -4,12 +4,12 @@ import struct
 import time
 import picamera
 
-client_socket = socket.socket()
+client_socket = socket.socket() # 소켓 생성
 
-client_socket.connect(('', 8000))  # ADD IP HERE
+client_socket.connect(('', 8000))  # ADD IP HERE # 연결 요청
 
 # Make a file-like object out of the connection
-connection = client_socket.makefile('wb')
+connection = client_socket.makefile('wb') # 파일을 생성한다
 try:
     camera = picamera.PiCamera()
     camera.vflip = True

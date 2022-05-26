@@ -4,12 +4,11 @@ import struct
 from PIL import Image
 import matplotlib.pyplot as pl
 
-server_socket = socket.socket()
-server_socket.bind(('192.168.1.57', 8000))  # ADD IP HERE
-server_socket.listen(0)
-
+server_socket = socket.socket() # 소켓 생성
+server_socket.bind(('192.168.0.44', 8000))  # ADD IP HERE # 소켓에 주소를 결합하다
+server_socket.listen(0) # 클라이언트 연결 요청 수신을 듣다 -> 연결 요청을 확인하며 대기
 # Accept a single connection and make a file-like object out of it
-connection = server_socket.accept()[0].makefile('rb')
+connection = server_socket.accept()[0].makefile('rb') # 실질적인 데이터 송수신이 이루어진다. 연결 요청을 수락하고 파일을 읽는다
 try:
     img = None
     while True:
@@ -39,5 +38,5 @@ try:
         image.verify()
         print('Image is verified')
 finally:
-    connection.close()
-    server_socket.close()
+    connection.close() # accept API 호출에 의해 생성된 소켓
+    server_socket.close() # 최초 생성한 서버 소켓
