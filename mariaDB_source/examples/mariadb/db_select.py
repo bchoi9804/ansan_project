@@ -1,4 +1,4 @@
-ㅠ# mysql-connector 테스트: mysql DB의 temperature 테이블의 데이터를 select문을 통해 읽어 오는 실습
+# mysql-connector 테스트: mysql DB의 temperature 테이블의 데이터를 select문을 통해 읽어 오는 실습
 import pymysql    # pymysql 임포트
 
 # 전역변수 선언부 
